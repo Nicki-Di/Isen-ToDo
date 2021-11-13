@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Kourosh/AndroidStudioProjects/Isen-ToDo/app/src/main/res/drawable/not_urgent_checked.xml" value="0.1125" />
+        <entry key="..\:/Users/Kourosh/AndroidStudioProjects/Isen-ToDo/app/src/main/res/drawable/not_urgent_selector.xml" value="0.1125" />
+        <entry key="..\:/Users/Kourosh/AndroidStudioProjects/Isen-ToDo/app/src/main/res/drawable/not_urgent_unchecked.xml" value="0.1125" />
+        <entry key="..\:/Users/Kourosh/AndroidStudioProjects/Isen-ToDo/app/src/main/res/drawable/urgent_checked.xml" value="0.10648148148148148" />
+        <entry key="..\:/Users/Kourosh/AndroidStudioProjects/Isen-ToDo/app/src/main/res/drawable/urgent_selector.xml" value="0.1125" />
+        <entry key="..\:/Users/Kourosh/AndroidStudioProjects/Isen-ToDo/app/src/main/res/drawable/urgent_unchecked.xml" value="0.1125" />
+        <entry key="..\:/Users/Kourosh/AndroidStudioProjects/Isen-ToDo/app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="..\:/Users/hnazy/AndroidStudioProjects/IsenTodo/app/src/main/res/layout/activity_main.xml" value="0.264" />
       </map>
     </option>
@@ -12,5 +19,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.18" />
+      </ProjectState>
+    </option>
   </component>
 </project>

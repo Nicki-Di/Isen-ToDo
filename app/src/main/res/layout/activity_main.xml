@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraint"
     android:layout_width="match_parent"
@@ -10,86 +9,146 @@
     android:padding="0dp">
 
 
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:background="@color/colorPrimaryDark"
-    tools:context=".MainActivity">
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/linear"
-        android:orientation="vertical">
+        android:background="@color/colorPrimaryDark"
+        android:fillViewport="true"
+        tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="10dp"
-        android:text="Isen - To Do"
-        android:textColor="@color/white"
-        android:textSize="26dp"
-         />
-
-        <TextView
-            android:id="@+id/textView1"
+        <LinearLayout
+            android:id="@+id/linear"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/linearLayout1"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="My To Do List"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <ListView
-            android:id="@+id/listView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:choiceMode="multipleChoice" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Isen - To Do"
+                android:textColor="@color/white"
+                android:textSize="26dp" />
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Add an Item"
-        android:padding="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linearLayout1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="My To Do List"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editText"
-        android:orientation="horizontal"
-        android:padding="10dp">
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:choiceMode="multipleChoice" />
 
-        <Button
-            android:id="@+id/add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add" />
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Add an Item"
+                android:padding="20dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
 
-        <Button
-            android:id="@+id/delete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="70dp"
-            android:text="Delete"
-            style="?android:attr/buttonBarButtonStyle" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_margin="20dp">
 
-        <Button
-            android:id="@+id/clear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="60dp"
-            android:text="Clear" />
-    </LinearLayout>
+                <RadioButton
+                    android:id="@+id/urgent"
+                    android:layout_width="163dp"
+                    android:layout_height="30dp"
+                    android:text="Urgtent"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:layout_weight="-1"
+                    android:background="@drawable/urgent_selector"
+                    android:textColor="@color/white"></RadioButton>
 
-    </LinearLayout>
-</ScrollView>
+                <RadioButton
+                    android:id="@+id/not_urgent"
+                    android:layout_width="163dp"
+                    android:layout_height="30dp"
+                    android:text="Not-Urgtent"
+                    android:checked="true"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:layout_weight="-1"
+                    android:background="@drawable/not_urgent_selector"
+                    android:textColor="@color/white"></RadioButton>
+            </RadioGroup>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <RadioButton
+                    android:id="@+id/important"
+                    android:layout_width="163dp"
+                    android:layout_height="30dp"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:layout_weight="-1"
+                    android:background="@drawable/urgent_selector"
+                    android:text="Important"
+                    android:textColor="@color/white"></RadioButton>
+
+                <RadioButton
+                    android:id="@+id/not_important"
+                    android:layout_width="163dp"
+                    android:layout_height="30dp"
+                    android:checked="true"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:layout_weight="-1"
+                    android:background="@drawable/not_urgent_selector"
+                    android:text="Not-Important"
+                    android:textColor="@color/white"></RadioButton>
+            </RadioGroup>
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editText"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <Button
+                    android:id="@+id/add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add" />
+
+                <Button
+                    android:id="@+id/delete"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="70dp"
+                    android:text="Delete" />
+
+                <Button
+                    android:id="@+id/clear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="60dp"
+                    android:text="Clear" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

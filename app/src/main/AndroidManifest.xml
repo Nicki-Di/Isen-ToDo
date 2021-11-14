@@ -11,9 +11,6 @@
         android:theme="@style/Theme.IsenTodo">
         <activity
             android:name=".TasksActivity"
-            android:exported="true" />
-        <activity
-            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

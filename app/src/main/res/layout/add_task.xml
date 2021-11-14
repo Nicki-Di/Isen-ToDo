@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr"
+    android:padding="0dp">
+
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:background="@android:color/transparent"
+                android:hint="Add an Item"
+                android:padding="20dp"
+                android:textColor="@color/colorPrimary"
+                />
+
+            <RadioGroup
+                android:id="@+id/urgency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editText"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_margin="20dp">
+
+                <RadioButton
+                    android:id="@+id/urgent"
+                    android:layout_width="163dp"
+                    android:layout_height="30dp"
+                    android:text="Urgtent"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:layout_weight="-1"
+                    android:background="@drawable/urgent_selector"
+                    android:textColor="@color/not_urgent"></RadioButton>
+
+                <RadioButton
+                    android:id="@+id/not_urgent"
+                    android:layout_width="163dp"
+                    android:layout_height="30dp"
+                    android:text="Not-Urgtent"
+                    android:checked="true"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:layout_weight="-1"
+                    android:background="@drawable/not_urgent_selector"
+                    android:textColor="@color/white"></RadioButton>
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/importance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/urgency"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <RadioButton
+                    android:id="@+id/important"
+                    android:layout_width="163dp"
+                    android:layout_height="30dp"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:layout_weight="-1"
+                    android:background="@drawable/urgent_selector"
+                    android:text="Important"
+                    android:textColor="@color/not_urgent"></RadioButton>
+
+                <RadioButton
+                    android:id="@+id/not_important"
+                    android:layout_width="163dp"
+                    android:layout_height="30dp"
+                    android:checked="true"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:layout_weight="-1"
+                    android:background="@drawable/not_urgent_selector"
+                    android:text="Not-Important"
+                    android:textColor="@color/white"></RadioButton>
+            </RadioGroup>
+
+
+                <Button
+                    android:id="@+id/add_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/importance"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="16dp"
+                    android:text="Add"
+                    android:backgroundTint="@color/colorPrimary"
+                    />
+
+
+
+
+</RelativeLayout>

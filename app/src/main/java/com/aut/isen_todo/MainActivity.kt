@@ -1,9 +1,14 @@
-package com.aut.isen_todo
+import com.aut.isen_todo.R
 
+
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.SparseBooleanArray
-import android.widget.*
+import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ListView
 import com.aut.isen_todo.databinding.ActivityMainBinding
 
 
@@ -15,8 +20,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var editText: EditText
     private lateinit var delete: Button
     private lateinit var clear: Button
-    private lateinit var urgency: RadioGroup
-    private lateinit var importance: RadioGroup
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,33 +29,16 @@ class MainActivity : AppCompatActivity() {
         editText = findViewById(R.id.editText)
         delete = findViewById(R.id.delete)
         clear = findViewById(R.id.clear)
-        urgency = findViewById(R.id.urgency)
-        importance = findViewById(R.id.importance)
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         // Initializing the array lists and the adapter
         var itemlist = arrayListOf<String>()
-        var tasks = mutableListOf<Task>()
         var adapter = ArrayAdapter<String>(
             this,
             android.R.layout.simple_list_item_multiple_choice, itemlist
         )
         // Adding the items to the list when the add button is pressed
         add.setOnClickListener {
-            val taskTitle = editText.text.toString()
-
-            val urgent = urgency.checkedRadioButtonId == R.id.urgent
-            val important = importance.checkedRadioButtonId == R.id.important
-
-            var taskType = 0
-            if (urgent && !important) taskType = 1
-            if (!urgent && important) taskType = 2
-            if (urgent && important) taskType = 3
-
-            val newTask = Task(title = taskTitle, type = taskType)
-            tasks.add(newTask)
-
-
 
             itemlist.add(editText.text.toString())
             listView.adapter = adapter
@@ -63,8 +49,6 @@ class MainActivity : AppCompatActivity() {
         }
         // Clearing all the items in the list when the clear button is pressed
         clear.setOnClickListener {
-
-            tasks.clear()
 
             itemlist.clear()
             adapter.notifyDataSetChanged()
@@ -92,4 +76,4 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-}
+} 

@@ -1,22 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_cardview"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="2dp"
+    app:cardElevation="2dp"
     app:cardUseCompatPadding="true"
-    app:cardElevation="20dp">
+    app:strokeWidth="2dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <CheckBox
+            android:id="@+id/task_checkbox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Title"
-            android:layout_marginStart="10dp"></CheckBox>
+            android:layout_marginStart="10dp"
+            android:buttonTint="@color/colorPrimary"
+            android:text="Title"></CheckBox>
+
+        <ImageButton
+            android:id="@+id/delete_task_button"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/ripple_oval"
+            android:scaleType="center"
+            android:src="@drawable/ic_baseline_delete_24" />
     </RelativeLayout>
 
 
-
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

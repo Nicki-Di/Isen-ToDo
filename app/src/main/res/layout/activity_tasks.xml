@@ -11,8 +11,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_margin="20dp"
-        android:text="Tasks"
+        android:layout_margin="36dp"
+        android:fontFamily="cursive"
+        android:text="To Do List..!"
+        android:textColor="@color/colorPrimary"
         android:textSize="36sp"></TextView>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -20,21 +22,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tasks_title"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_marginStart="36dp"
+        android:layout_marginEnd="36dp"
         android:nestedScrollingEnabled="true"
-        android:layout_marginStart="36dp"></androidx.recyclerview.widget.RecyclerView>
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"></androidx.recyclerview.widget.RecyclerView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_task_button"
+        android:id="@+id/add_task_floating_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:src="@drawable/ic_baseline_add_24"
-        android:tint="@android:color/white"
+        android:layout_alignParentBottom="true"
         android:layout_margin="36dp"
-        android:backgroundTint="@color/colorPrimary"></com.google.android.material.floatingactionbutton.FloatingActionButton>
-
+        android:backgroundTint="@color/colorPrimary"
+        android:src="@drawable/ic_baseline_add_24"
+        app:backgroundTint="@color/colorPrimary"
+        app:tint="@color/white"></com.google.android.material.floatingactionbutton.FloatingActionButton>
 
 
 </RelativeLayout>

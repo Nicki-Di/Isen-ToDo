@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.RecoverySystem
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
@@ -68,10 +67,10 @@ class TasksActivity : AppCompatActivity() {
 
 
     @RequiresApi(Build.VERSION_CODES.M)
-    fun radioButtonStyles(btn1:RadioButton, btn2:RadioButton){
+    fun radioButtonStyles(btn1: RadioButton, btn2: RadioButton) {
         btn1.setOnClickListener {
             btn1.setTextColor(this.getColor(R.color.white))
-            btn2.setTextColor(this.getColor(R.color.urgnet))
+            btn2.setTextColor(this.getColor(R.color.urgent))
         }
         btn2.setOnClickListener {
             btn2.setTextColor(this.getColor(R.color.white))
@@ -91,7 +90,6 @@ class TasksActivity : AppCompatActivity() {
         val notImportant = view.findViewById<RadioButton>(R.id.not_important)
         radioButtonStyles(urgent, notUrgent)
         radioButtonStyles(important, notImportant)
-
 
 
         val addTaskButton = view.findViewById<Button>(R.id.add_button)

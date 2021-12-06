@@ -28,7 +28,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
 
     override fun onUpgrade(db: SQLiteDatabase, p1: Int, p2: Int) {
         // this method is to check if table already exists
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME)
+        db.execSQL("DROP TABLE IF EXISTS $TABLE_NAME")
         onCreate(db)
     }
 
@@ -98,7 +98,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
 
         // below code returns a cursor to
         // read data from the database
-        return db.rawQuery("SELECT * FROM " + TABLE_NAME, null)
+        return db.rawQuery("SELECT * FROM $TABLE_NAME", null)
 
     }
 
@@ -106,24 +106,24 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         // here we have defined variables for our database
 
         // below is variable for database name
-        private val DATABASE_NAME = "ISEN_TODO"
+        private const val DATABASE_NAME = "ISEN_TODO"
 
         // below is the variable for database version
-        private val DATABASE_VERSION = 1
+        private const val DATABASE_VERSION = 1
 
         // below is the variable for table name
-        val TABLE_NAME = "tasks_table"
+        const val TABLE_NAME = "tasks_table"
 
         // below is the variable for id column
-        val ID_COL = "id"
+        const val ID_COL = "id"
 
         // below is the variable for task title column
-        val TITLE_COl = "title"
+        const val TITLE_COl = "title"
 
         // below is the variable for task type column
-        val TYPE_COL = "type"
+        const val TYPE_COL = "type"
 
         // below is the variable for task done column
-        val DONE_COL = "done"
+        const val DONE_COL = "done"
     }
 }

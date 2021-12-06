@@ -1,7 +1,6 @@
-import com.aut.isen_todo.R
+package com.aut.isen_todo
 
 
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.SparseBooleanArray
@@ -32,8 +31,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         // Initializing the array lists and the adapter
-        var itemlist = arrayListOf<String>()
-        var adapter = ArrayAdapter<String>(
+        val itemlist = arrayListOf<String>()
+        val adapter = ArrayAdapter<String>(
             this,
             android.R.layout.simple_list_item_multiple_choice, itemlist
         )
@@ -53,10 +52,10 @@ class MainActivity : AppCompatActivity() {
             itemlist.clear()
             adapter.notifyDataSetChanged()
         }         // Adding the toast message to the list when an item on the list is pressed
-        listView.setOnItemClickListener { adapterView, view, i, l ->
+        listView.setOnItemClickListener { _, _, i, _ ->
             android.widget.Toast.makeText(
                 this,
-                "You Selected the item --> " + itemlist.get(i),
+                "You Selected the item --> " + itemlist[i],
                 android.widget.Toast.LENGTH_SHORT
             ).show()
         }        // Selecting and Deleting the items from the list when the delete button is pressed
@@ -66,7 +65,7 @@ class MainActivity : AppCompatActivity() {
             var item = count - 1
             while (item >= 0) {
                 if (position.get(item)) {
-                    adapter.remove(itemlist.get(item))
+                    adapter.remove(itemlist[item])
                 }
                 item--
             }

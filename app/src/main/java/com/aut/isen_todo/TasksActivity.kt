@@ -23,7 +23,7 @@ class TasksActivity : AppCompatActivity() {
 
 
     // Load Tasks from the Database and Show!
-    @SuppressLint("Range")
+    @SuppressLint("Range", "NotifyDataSetChanged")
     fun getTasks() {
         val db = DBHelper(this, null)
 
@@ -79,6 +79,7 @@ class TasksActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("InflateParams")
     @RequiresApi(Build.VERSION_CODES.M)
     fun openAddTaskSheet() {
         val dialog = BottomSheetDialog(this)
@@ -93,7 +94,7 @@ class TasksActivity : AppCompatActivity() {
 
 
 
-        var addTaskButton = view.findViewById<Button>(R.id.add_button)
+        val addTaskButton = view.findViewById<Button>(R.id.add_button)
         addTaskButton.setOnClickListener {
             val urgency = view.findViewById<RadioGroup>(R.id.urgency)
             val importance = view.findViewById<RadioGroup>(R.id.importance)
@@ -124,6 +125,7 @@ class TasksActivity : AppCompatActivity() {
         dialog.show()
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tasks)

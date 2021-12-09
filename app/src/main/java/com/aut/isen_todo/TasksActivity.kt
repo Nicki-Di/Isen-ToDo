@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
@@ -23,7 +24,7 @@ class TasksActivity : AppCompatActivity() {
 
     // Load Tasks from the Database and Show!
     @SuppressLint("Range", "NotifyDataSetChanged")
-    fun getTasks() {
+    fun getTasks(typeOfTask: String) {
         val db = DBHelper(this, null)
 
         tasksList.clear()
@@ -44,19 +45,22 @@ class TasksActivity : AppCompatActivity() {
             val done = cursor.getInt(cursor.getColumnIndex(DBHelper.DONE_COL))
 
             val task = TaskModel(id, title, type, done)
-            tasksList.add(task)
-
+            if (task.type.toString() == typeOfTask) {
+                tasksList.add(task)
+            }
 
             // moving our cursor to next
             // position and appending values
             while (cursor.moveToNext()) {
-                val id = cursor.getInt(cursor.getColumnIndex(DBHelper.ID_COL))
-                val title = cursor.getString(cursor.getColumnIndex(DBHelper.TITLE_COl))
-                val type = cursor.getInt(cursor.getColumnIndex(DBHelper.TYPE_COL))
-                val done = cursor.getInt(cursor.getColumnIndex(DBHelper.DONE_COL))
+                val id1 = cursor.getInt(cursor.getColumnIndex(DBHelper.ID_COL))
+                val title1 = cursor.getString(cursor.getColumnIndex(DBHelper.TITLE_COl))
+                val type1 = cursor.getInt(cursor.getColumnIndex(DBHelper.TYPE_COL))
+                val done1 = cursor.getInt(cursor.getColumnIndex(DBHelper.DONE_COL))
 
-                val task = TaskModel(id, title, type, done)
-                tasksList.add(task)
+                val task1 = TaskModel(id1, title1, type1, done1)
+                if (task1.type.toString() == typeOfTask) {
+                    tasksList.add(task1)
+                }
             }
             tasksRecyclerView.adapter = adapter
             adapter.notifyDataSetChanged()
@@ -80,7 +84,7 @@ class TasksActivity : AppCompatActivity() {
 
     @SuppressLint("InflateParams")
     @RequiresApi(Build.VERSION_CODES.M)
-    fun openAddTaskSheet() {
+    fun openAddTaskSheet(typeOfTask: String) {
         val dialog = BottomSheetDialog(this)
         val view = layoutInflater.inflate(R.layout.add_task, null)
 
@@ -114,7 +118,7 @@ class TasksActivity : AppCompatActivity() {
             val dbHelper = DBHelper(this, null)
             dbHelper.addTask(newTask)
 
-            getTasks()
+            getTasks(typeOfTask)
             dialog.dismiss()
 
         }
@@ -127,15 +131,20 @@ class TasksActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tasks)
-        tasksRecyclerView = findViewById<RecyclerView>(R.id.tasks_recyclerview)
+        val typeOfTask = intent.getStringExtra("type")
+        tasksRecyclerView = findViewById(R.id.tasks_recyclerview)
         tasksRecyclerView.adapter = adapter
 
         addTaskFloatingButton = findViewById(R.id.add_task_floating_button)
         addTaskFloatingButton.setOnClickListener {
-            openAddTaskSheet()
+            if (typeOfTask != null) {
+                openAddTaskSheet(typeOfTask)
+            }
         }
 
-        getTasks()
+        if (typeOfTask != null) {
+            getTasks(typeOfTask)
+        }
 
     }
 }

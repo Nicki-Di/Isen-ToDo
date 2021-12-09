@@ -70,24 +70,24 @@
                     android:id="@+id/urgent"
                     android:layout_width="163dp"
                     android:layout_height="30dp"
-                    android:text="Urgtent"
+                    android:text="Urgent"
                     android:button="@android:color/transparent"
                     android:gravity="center"
                     android:layout_weight="-1"
                     android:background="@drawable/urgent_selector"
-                    android:textColor="@color/white"></RadioButton>
+                    android:textColor="@color/white" />
 
                 <RadioButton
                     android:id="@+id/not_urgent"
                     android:layout_width="163dp"
                     android:layout_height="30dp"
-                    android:text="Not-Urgtent"
+                    android:text="Not-Urgent"
                     android:checked="true"
                     android:button="@android:color/transparent"
                     android:gravity="center"
                     android:layout_weight="-1"
                     android:background="@drawable/not_urgent_selector"
-                    android:textColor="@color/white"></RadioButton>
+                    android:textColor="@color/white" />
             </RadioGroup>
 
             <RadioGroup
@@ -106,7 +106,7 @@
                     android:layout_weight="-1"
                     android:background="@drawable/urgent_selector"
                     android:text="Important"
-                    android:textColor="@color/white"></RadioButton>
+                    android:textColor="@color/white" />
 
                 <RadioButton
                     android:id="@+id/not_important"
@@ -118,14 +118,13 @@
                     android:layout_weight="-1"
                     android:background="@drawable/not_urgent_selector"
                     android:text="Not-Important"
-                    android:textColor="@color/white"></RadioButton>
+                    android:textColor="@color/white" />
             </RadioGroup>
 
             <LinearLayout
                 android:id="@+id/linearLayout1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/editText"
                 android:orientation="horizontal"
                 android:padding="10dp">
 
@@ -140,14 +139,14 @@
                     style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="70dp"
+                    android:layout_marginStart="70dp"
                     android:text="Delete" />
 
                 <Button
                     android:id="@+id/clear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="60dp"
+                    android:layout_marginStart="60dp"
                     android:text="Clear" />
             </LinearLayout>
 

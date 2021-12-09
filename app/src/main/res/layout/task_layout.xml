@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:buttonTint="@color/colorPrimary"
-            android:text="Title"></CheckBox>
+            android:text="Title" />
 
         <ImageButton
             android:id="@+id/delete_task_button"

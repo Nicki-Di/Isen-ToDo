@@ -11,15 +11,32 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="3dp">
 
         <CheckBox
             android:id="@+id/task_checkbox"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:layout_alignParentStart="true"
             android:buttonTint="@color/colorPrimary"
             android:text="Title" />
+
+        <TextView
+            android:id="@+id/notification_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/task_checkbox"
+            android:layout_marginStart="46dp"
+            android:text="2022-02-02"
+            android:visibility="invisible"
+            android:drawableLeft="@drawable/ic_baseline_notifications_active_24"
+            android:drawablePadding="6dp"
+            android:textSize="10sp"
+            android:textColor="#919191">
+
+        </TextView>
 
         <ImageButton
             android:id="@+id/delete_task_button"
@@ -32,6 +49,30 @@
             android:background="@drawable/ripple_oval"
             android:scaleType="center"
             android:src="@drawable/ic_baseline_delete_24" />
+        <ImageButton
+            android:id="@+id/mail_task_button"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_toLeftOf="@id/delete_task_button"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="16dp"
+            android:layout_marginRight="6dp"
+            android:visibility="invisible"
+            android:background="@drawable/ripple_oval"
+            android:scaleType="center"
+            android:src="@drawable/ic_baseline_mail_24" />
+    <ImageButton
+            android:id="@+id/notification_task_button"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_toLeftOf="@id/delete_task_button"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="16dp"
+            android:layout_marginRight="6dp"
+            android:visibility="invisible"
+            android:background="@drawable/ripple_oval"
+            android:scaleType="center"
+            android:src="@drawable/ic_baseline_notifications_24" />
     </RelativeLayout>
 
 

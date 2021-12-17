@@ -13,6 +13,8 @@ import com.aut.isen_todo.model.TaskModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.lang.Exception
+import java.sql.Time
+import java.sql.Timestamp
 
 class TasksActivity : AppCompatActivity() {
 
@@ -43,8 +45,9 @@ class TasksActivity : AppCompatActivity() {
             val title = cursor.getString(cursor.getColumnIndex(DBHelper.TITLE_COl))
             val type = cursor.getInt(cursor.getColumnIndex(DBHelper.TYPE_COL))
             val done = cursor.getInt(cursor.getColumnIndex(DBHelper.DONE_COL))
+            val time = cursor.getLong(cursor.getColumnIndex(DBHelper.NTFTIME_COL))
 
-            val task = TaskModel(id, title, type, done)
+            val task = TaskModel(id, title, type, done, Timestamp(time))
             if (task.type.toString() == typeOfTask) {
                 tasksList.add(task)
             }
@@ -56,8 +59,9 @@ class TasksActivity : AppCompatActivity() {
                 val title1 = cursor.getString(cursor.getColumnIndex(DBHelper.TITLE_COl))
                 val type1 = cursor.getInt(cursor.getColumnIndex(DBHelper.TYPE_COL))
                 val done1 = cursor.getInt(cursor.getColumnIndex(DBHelper.DONE_COL))
+                val time1 = cursor.getLong(cursor.getColumnIndex(DBHelper.NTFTIME_COL))
 
-                val task1 = TaskModel(id1, title1, type1, done1)
+                val task1 = TaskModel(id1, title1, type1, done1, Timestamp(time1))
                 if (task1.type.toString() == typeOfTask) {
                     tasksList.add(task1)
                 }
@@ -113,7 +117,7 @@ class TasksActivity : AppCompatActivity() {
             else if (!isUrgent && isImportant) taskType = 2
             else if (isUrgent && isImportant) taskType = 3
 
-            val newTask = TaskModel(0, taskTitle, taskType, 0)
+            val newTask = TaskModel(0, taskTitle, taskType, 0, Timestamp(79428))
 
             val dbHelper = DBHelper(this, null)
             dbHelper.addTask(newTask)

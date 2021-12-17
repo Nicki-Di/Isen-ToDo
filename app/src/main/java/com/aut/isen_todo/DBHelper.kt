@@ -6,6 +6,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.aut.isen_todo.model.TaskModel
+import java.sql.Timestamp
 
 class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
     SQLiteOpenHelper(context, DATABASE_NAME, factory, DATABASE_VERSION) {
@@ -18,7 +19,8 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
                 + ID_COL + " INTEGER PRIMARY KEY, " +
                 TITLE_COl + " TEXT," +
                 TYPE_COL + " INTEGER," +
-                DONE_COL + " INTEGER" +
+                DONE_COL + " INTEGER," +
+                NTFTIME_COL + " TIMESTAMP" +
                 ")")
 
         // we are calling sqlite
@@ -44,6 +46,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         values.put(TITLE_COl, task.title)
         values.put(TYPE_COL, task.type)
         values.put(DONE_COL, task.done)
+        values.put(NTFTIME_COL, task.notifTime.time)
 
 
         // here we are creating a
@@ -73,11 +76,14 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         return success
     }
 
-    fun updateTaskStatus(task: TaskModel, done:Int): Int{
+    fun updateTaskStatus(task: TaskModel, done: Int? =null, notifTime: Timestamp? =null): Int{
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(ID_COL, task.id) // Task id
-        contentValues.put(DONE_COL, done) // Task State
+        if (done != null)
+            contentValues.put(DONE_COL, done) // Task State
+        if (notifTime != null)
+            contentValues.put(NTFTIME_COL, notifTime.time) // Task Notification Time
         // Updating Row Status
         val success = db.update(TABLE_NAME, contentValues, ID_COL + "=" + task.id, null)
         //2nd argument is String containing nullColumnHack
@@ -125,5 +131,8 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
 
         // below is the variable for task done column
         const val DONE_COL = "done"
+
+        // below is the variable for task notification time column
+        const val NTFTIME_COL = "ntftime"
     }
 }

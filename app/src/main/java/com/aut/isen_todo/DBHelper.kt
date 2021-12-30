@@ -135,4 +135,12 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         // below is the variable for task notification time column
         const val NTFTIME_COL = "ntftime"
     }
+
+    fun getReminderById(taskId: Long): Cursor? {
+        val db = this.readableDatabase
+        val query = "SELECT * FROM $TABLE_NAME WHERE $ID_COL = '$taskId'"
+        return db.rawQuery(query, null)
+    }
+
+
 }

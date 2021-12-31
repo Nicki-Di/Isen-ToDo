@@ -1,9 +1,9 @@
 package com.aut.isen_todo.adapter
 
-import android.app.DatePickerDialog
-import android.app.TimePickerDialog
+import android.app.*
 import android.content.ActivityNotFoundException
 import android.content.Context
+import android.content.Context.NOTIFICATION_SERVICE
 import android.content.Intent
 import android.graphics.Paint
 import android.net.Uri
@@ -19,9 +19,10 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.TimePicker
 import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.recyclerview.widget.RecyclerView
-import com.aut.isen_todo.DBHelper
-import com.aut.isen_todo.R
+import com.aut.isen_todo.*
+import com.aut.isen_todo.Notification
 import com.aut.isen_todo.model.TaskModel
 import com.google.android.material.card.MaterialCardView
 import java.sql.Timestamp
@@ -47,6 +48,10 @@ class TaskAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val adapterLayout = LayoutInflater.from(parent.context)
             .inflate(R.layout.task_layout, parent, false)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            createNotificationChannel()
+        }
 
         return ItemViewHolder(adapterLayout)
     }
@@ -142,6 +147,7 @@ class TaskAdapter(
             holder.notificationTimeTextView.visibility = INVISIBLE
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     fun setNotificationTime(holder: ItemViewHolder, item: TaskModel) {
         holder.notificationButton.visibility = VISIBLE
         holder.notificationButton.setOnClickListener {
@@ -169,6 +175,13 @@ class TaskAdapter(
                         db.updateTaskStatus(item, notifTime = notifTime)
                         item.notifTime = notifTime
                         notifyDataSetChanged()
+
+                        // Set Notification
+                        scheduleNotification(
+                            item.id, item.title, "Do the ' ${item.title} ' Now .. !",
+                            notifTime.time
+                        )
+
                     }
 
                 }, defaultTime.hours, defaultTime.minutes, false)
@@ -189,6 +202,58 @@ class TaskAdapter(
             mDatePicker.show()
 
         }
+    }
+
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun scheduleNotification(id: Int, title: String, message: String, time: Long) {
+        val intent = Intent(context, Notification::class.java)
+        intent.putExtra(titleExtra, title)
+        intent.putExtra(messageExtra, message)
+        intent.putExtra(notificationIDExtra, id)
+
+        val pendingIntent = PendingIntent.getBroadcast(
+            context,
+            id,
+            intent,
+            PendingIntent.FLAG_MUTABLE
+        )
+
+        val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        alarmManager.setExactAndAllowWhileIdle(
+            AlarmManager.RTC_WAKEUP,
+            time,
+            pendingIntent
+        )
+        showAlert(time, title, message)
+    }
+
+    private fun showAlert(time: Long, title: String, message: String) {
+        val date = Date(time)
+        val dateFormat = android.text.format.DateFormat.getLongDateFormat(context)
+        val timeFormat = android.text.format.DateFormat.getTimeFormat(context)
+
+        AlertDialog.Builder(context)
+            .setTitle("Notification Scheduled")
+            .setMessage(
+                "Work: " + title +
+                        "\nAt: " + dateFormat.format(date) + " " + timeFormat.format(date)
+            )
+            .setPositiveButton("Okay") { _, _ -> }
+            .show()
+    }
+
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun createNotificationChannel() {
+        val name = "Notif Channel"
+        val desc = "ToDo Notif Channel..!"
+        val importance = NotificationManager.IMPORTANCE_DEFAULT
+        val channel = NotificationChannel(channelID, name, importance)
+        channel.description = desc
+        val notificationManager =
+            context.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.createNotificationChannel(channel)
     }
 
 }

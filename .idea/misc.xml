@@ -3,6 +3,28 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
+=======
+        <entry key="..\:/University/Android/MVP/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/University/Android/MVP/app/src/main/res/layout/activity_tasks.xml" value="0.4" />
+        <entry key="..\:/University/Android/MVP/app/src/main/res/layout/add_task.xml" value="0.4" />
+        <entry key="..\:/University/Android/MVP/app/src/main/res/layout/first_page.xml" value="0.264" />
+        <entry key="..\:/Users/Kourosh/AndroidStudioProjects/Isen-ToDo/app/src/main/res/drawable/backwithborder.xml" value="0.1" />
+        <entry key="..\:/Users/Kourosh/AndroidStudioProjects/Isen-ToDo/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.14351851851851852" />
+        <entry key="..\:/Users/Kourosh/AndroidStudioProjects/Isen-ToDo/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.14351851851851852" />
+        <entry key="..\:/Users/Kourosh/AndroidStudioProjects/Isen-ToDo/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14351851851851852" />
+        <entry key="..\:/Users/Kourosh/AndroidStudioProjects/Isen-ToDo/app/src/main/res/drawable/not_urgent_checked.xml" value="0.1125" />
+        <entry key="..\:/Users/Kourosh/AndroidStudioProjects/Isen-ToDo/app/src/main/res/drawable/not_urgent_selector.xml" value="0.1125" />
+        <entry key="..\:/Users/Kourosh/AndroidStudioProjects/Isen-ToDo/app/src/main/res/drawable/not_urgent_unchecked.xml" value="0.1125" />
+        <entry key="..\:/Users/Kourosh/AndroidStudioProjects/Isen-ToDo/app/src/main/res/drawable/ripple_oval.xml" value="0.14351851851851852" />
+        <entry key="..\:/Users/Kourosh/AndroidStudioProjects/Isen-ToDo/app/src/main/res/drawable/urgent_checked.xml" value="0.10648148148148148" />
+        <entry key="..\:/Users/Kourosh/AndroidStudioProjects/Isen-ToDo/app/src/main/res/drawable/urgent_selector.xml" value="0.1125" />
+        <entry key="..\:/Users/Kourosh/AndroidStudioProjects/Isen-ToDo/app/src/main/res/drawable/urgent_unchecked.xml" value="0.1125" />
+        <entry key="..\:/Users/Kourosh/AndroidStudioProjects/Isen-ToDo/app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="..\:/Users/Kourosh/AndroidStudioProjects/Isen-ToDo/app/src/main/res/layout/activity_tasks.xml" value="0.17" />
+        <entry key="..\:/Users/Kourosh/AndroidStudioProjects/Isen-ToDo/app/src/main/res/layout/add_task.xml" value="0.2" />
+        <entry key="..\:/Users/Kourosh/AndroidStudioProjects/Isen-ToDo/app/src/main/res/layout/task_layout.xml" value="0.5" />
+>>>>>>> parent of a1010fe (Notification Time Set and Delegation Added!)
         <entry key="..\:/Users/hnazy/AndroidStudioProjects/IsenTodo/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/hnazy/AndroidStudioProjects/IsenTodo/app/src/main/res/layout/first_page.xml" value="0.18958333333333333" />
         <entry key="..\:/Users/hnazy/AndroidStudioProjects/IsenTodo/app/src/main/res/layout/notification_layout.xml" value="0.18958333333333333" />

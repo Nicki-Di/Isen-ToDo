@@ -30,6 +30,8 @@ class MainActivity : AppCompatActivity() {
         clear = findViewById(R.id.clear)
         binding = ActivityMainBinding.inflate(layoutInflater)
 
+
+
         // Initializing the array lists and the adapter
         val itemlist = arrayListOf<String>()
         val adapter = ArrayAdapter<String>(
